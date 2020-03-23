@@ -4,8 +4,6 @@
 // Complete the abbreviation function below.
 - (NSString *) abbreviationFromA:(NSString *)a toB:(NSString *)b {
     a = [a uppercaseString];
-//    NSMutableString *aStr = [NSMutableString string];
-//    NSMutableString *bStr = [NSMutableString string];
     NSMutableArray *aArray = [NSMutableArray array];
     NSMutableArray *bArray = [NSMutableArray array];
     NSInteger x = -1;
@@ -23,53 +21,29 @@
     }
     NSLog(@"%@", bArray);
 
-
-
-//    if ([aArray count] < [bArray count]) {
-//        return @"NO";
-//    }
-//
-//    for (int i = 0; i < [bArray count]; i++) {
-//        x = x+1;
-//        while (x <= [aArray count] && aArray[x] != bArray[i]) {
-//            [aArray removeObjectAtIndex: x];
-//        }
-//    }
-
-//    while ([aArray count] > [bArray count]) {
-//        j = [bArray count] - 1;
-//        [aArray removeObjectAtIndex: j];
-//    }
-
-//    if ([aArray count] == [bArray count]) {
-//        return @"YES";
-//    } else if ([aArray count] < [bArray count]){
-//        return @"NO";
-//    }
-
     if ([aArray count] < [bArray count]) {
            return @"NO";
     } else if ([aArray count] >= [bArray count]) {
         for (int i = 0; i < [bArray count]; i++) {
-              x = x+1;
-              while (x <= [aArray count] && aArray[x] != bArray[i]) {
-                  [aArray removeObjectAtIndex: x];
-              }
-          }
+            x = x+1;
+            while (x < [aArray count] && aArray[x] != bArray[i]) {
+                [aArray removeObjectAtIndex: x];
+            }
+        NSLog(@"%@", aArray);
+        }
+    NSLog(@"%@", aArray);
     }
 
     if ([aArray count] == [bArray count]) {
            return @"YES";
     } else if ([aArray count] > [bArray count]){
         while ([aArray count] > [bArray count]) {
-            j = [bArray count] - 1;
+            j = [aArray count] - 1;
             [aArray removeObjectAtIndex: j];
         }
+        return @"YES";
     } else {
         return @"NO";
     }
-
-
-    return @"NO";
 }
 @end
